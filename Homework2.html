@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Homework2.css">
+        <title>Furkan Özbek</title>
+</head>
+
+<body>
+    <div>
+    <header id=header1 class="header1">
+        <div class="logo">
+            <a class="logo1" href="/"><img src="" /></a>
+            <a class="dropdown1" id="dropdowns" onclick="drptoggle()">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+            </a>
+        </div>
+        <div class="header-item none" id="header-item">
+            <ol>
+                <a href="#About">
+                    <li class="header-items"  style="animation-delay:300ms;">
+                        About Me </li>
+                </a>
+                <a href="#jobs">
+                    <li class="header-items" :class="{'header-items-none':!isActive}" style="animation-delay:600ms;">
+                        Experience </li>
+                </a>
+                <a href="#pskills">
+                    <li class="header-items" :class="{'header-items-none':!isActive}" style="animation-delay:900ms;">
+                        Skills</li>
+                </a>
+                <a href="#contact1">
+                    <li class="header-items" :class="{'header-items-none':!isActive}" style="animation-delay:1200ms;">
+                        Contact </li>
+                </a>
+
+                <a class="cv" :class="{'cv-none':!isActive}" style="animation-delay:1500ms;"
+                    href="\src\assets\resume.pdf" target=”_blank”> Resume</a>
+
+
+            </ol>
+
+        </div>
+    </header>
+</div>
+
+    <main>
+        <div v-if="!isLoading" orientation="left" class="leftstb" style="animation-delay: 2500ms;">
+            <ul class="leftstbul">
+                <li class="soc"><a href="https://github.com/FurkannOzbek" aria-label="GitHub" target="_blank"
+                        rel="noreferrer">
+                        <svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="feather feather-github">
+                            <title>GitHub</title>
+                            <path
+                                d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                            </path>
+                        </svg></a></li>
+                <li class="soc"><a href="https://www.instagram.com/fu.ozbek/" aria-label="Instagram" target="_blank"
+                        rel="noreferrer"><svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="feather feather-instagram">
+                            <title>Instagram</title>
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg></a></li>
+                <li class="soc"><a href="https://www.linkedin.com/in/furkan-%C3%B6zbek-151926127/" aria-label="Linkedin"
+                        target="_blank" rel="noreferrer"><svg xmlns="http://www.w3.org/2000/svg" role="img"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" class="feather feather-linkedin">
+                            <title>LinkedIn</title>
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
+                            </path>
+                            <rect x="2" y="9" width="4" height="12"></rect>
+                            <circle cx="4" cy="4" r="2"></circle>
+                        </svg></a></li>
+            </ul>
+        </div>
+        <div v-if="!isLoading" orientation="right" class="rightstb" style="animation-delay: 2500ms;"><a
+                href="mailto:furkannozbek@yandex.com?subject = Feedback&body = Message" aria-label="GitHub"
+                target="_blank" rel="noreferrer">
+                <svg xmlns="http://www.w3.org/2000/svg" role="img" width="90" height="84" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path
+                        d="M17.388,4.751H2.613c-0.213,0-0.389,0.175-0.389,0.389v9.72c0,0.216,0.175,0.389,0.389,0.389h14.775c0.214,0,0.389-0.173,0.389-0.389v-9.72C17.776,4.926,17.602,4.751,17.388,4.751 M16.448,5.53L10,11.984L3.552,5.53H16.448zM3.002,6.081l3.921,3.925l-3.921,3.925V6.081z M3.56,14.471l3.914-3.916l2.253,2.253c0.153,0.153,0.395,0.153,0.548,0l2.253-2.253l3.913,3.916H3.56z M16.999,13.931l-3.921-3.925l3.921-3.925V13.931z">
+                    </path>
+                </svg></a></div>
+        <section class="content">
+
+            <div class="fadetext" style="animation-delay:2600ms;">
+                <h1>Hi, my name is</h1>
+            </div>
+            <div class="fadetext" style="animation-delay:2800ms;">
+                <h2>Furkan Özbek</h2>
+            </div>
+            <div class="fadetext" style="animation-delay:3000ms;">
+                <h3>I love build websites</h3>
+            </div>
+            <div class="fadetext" style="animation-delay:3200ms;">
+                <p>I am a computer engineer with desire to design. Currently I am looking for a job, if you would like
+                    to contact please hit the button! </p>
+            </div>
+            <a class="contact" style="animation-delay:3400ms;" a
+                href="mailto:furkannozbek@yandex.com?subject = Feedback&body = Message"> Contact Me</a>
+
+        </section>
+
+        <section id="About" class="About">
+            <h2 class="numberheading"> About Me</h2>
+            <div class="inner">
+                <div>
+
+                    <p> Hello, My name is Furkan and I really love design websites. My interest in web development
+                        started back in 2014 when I have designed some few website for the people who is close to me. At
+                        those times I were using
+                        wordpress ready themes and with custom css I were designing. Then I have met with Javascript and
+                        Vue.js and started to code my websites from scracth.
+                    </p>
+                    <p>
+                        Here are some methods I am familiar with:
+                    </p>
+
+                    <ul class="skills1">
+                        <li> HTML</li>
+                        <li> CSS</li>
+                        <li> Javascript</li>
+                        <li> Vue.js</li>
+
+                    </ul>
+                </div>
+               
+            </div>
+        </section>
+        <section id="jobs" class="jobs">
+            <h2 class="numberheading"> Work Experience</h2>
+            <div class="inner">
+                <div id="tablist" class="joblist">
+                    <button id="tab1" class="jobtabothers" onclick="asd('tab11')"> <span> C2Tech </span></button>
+                    <button id="tab2" class="jobtabothers" onclick="asd('tab22')"> <span> Alya Boutique Hotel
+                        </span></button>
+                    <button id="tab3" class="jobtabothers" onclick="asd('tab33')"> <span> KFC </span></button>
+                    <div id="followline" class="followlinetab1"></div>
+
+                </div>
+                <div class="worktext">
+                    <div id="tab11" class="tab">
+                        <h3>
+                            <span>Technical Sales Engineer</span>
+                            <span class="company"> @ C2Tech </span>
+                        </h3>
+                        <p class="distance">
+                            Date 2017-2018
+                        </p>
+                        <div>
+                            <ul>
+                                <li>In my internship at C2Tech, I was responsible for a security device that can encrypt data. It was in development stage so i was responsible with:
+                                </li>
+                                <li>Finding bugs</li>
+                                <li>Creating installation guide
+                                </li>
+                                <li>Provide technical support</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div id="tab22" class="tab" style="display:none">
+                        <h3>
+                            <span>Internal IT Support</span>
+                            <span class="company"> @ Alya Boutique Hotel </span>
+                        </h3>
+                        <p class="distance">
+                            Date 2018 - 2020
+                        </p>
+                        <div>
+                            <ul>
+                                <li>In this little boutique hotel, I was responsible for every electronic device and system beside that I have been also a substitute manager. Mostly I got to experience for:
+                                </li>
+                                <li>Network Installation
+                                </li>
+                                <li>Website Design</li>
+                                <li>Network Support</li>
+                                <li>Substitute Manager
+                                </li>
+                            </ul>
+                            </ul>
+                        </div>
+                    </div>
+                    <div id="tab33" class="tab" style="display:none">
+                        <h3>
+                            <span> Shiftleader </span>
+                            <span class="company"> @ KFC </span>
+                        </h3>
+
+                        <p class="distance">
+                            Date 2022 - now
+                        </p>
+                        <div>
+                            <ul>
+                                <li>After I got married and moved to Denmark, I am searching for a job in my field, meantime I am working in KFC as a Shiftleader position. With this position, I have got the experience of :
+                                </li>
+                                <li>Management
+                                </li>
+                                <li>Customer Satisfaction</li>
+                                <li>Staff Responsible</li>
+                                <li>Large-scale overview</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </section>
+        <section v-if="!isLoading" id="pskills" class="pskills">
+            <h2 class="numberheading"> My Skills</h2>
+            <div class="inner">
+                <div class="tech">
+                    <h1 style="padding-top:50px;font-size: 30px;"> Technology </h1>
+                    <p class="prskills"> I have been always interested with technology especially technology in computer
+                        area. Hereby some of my skills and interests about technology
+                    </p>
+
+
+                </div>
+
+                <div id="graphs" class="graphs">
+                    <li class="graphsli">
+                        <h3> HTML and CSS </h3> <span class="bar"><span class="html"></span></span>
+                    </li>
+                    <li class="graphsli">
+                        <h3> Javascript and Vue </h3> <span class="bar"><span class="java"></span></span>
+                    </li>
+                    <li class="graphsli">
+                        <h3> MS Office and OS </h3> <span class="bar"><span class="ms"></span></span>
+                    </li>
+                    <li class="graphsli">
+                        <h3> Network </h3> <span class="bar"><span class="net"></span></span>
+                    </li>
+
+                </div>
+
+            </div>
+            <div class="inner" style="padding-top:150px;padding-right:50px;">
+
+
+                <div id="graphs" class="graphs">
+                    <li class="graphsli">
+                        <h3> English </h3> <span class="bar"><span class="eng"></span></span>
+                    </li>
+                    <li class="graphsli">
+                        <h3> Danish </h3> <span class="bar"><span class="dan"></span></span>
+                    </li>
+                    <li class="graphsli">
+                        <h3> Turkish</h3> <span class="bar"><span class="tr"></span></span>
+                    </li>
+
+
+                </div>
+                <div class="language" style="padding-left:50px;">
+                    <h1 style="padding-top:50px;font-size: 30px;"> Language </h1>
+                    <p class="prskills">Eventho my mother language is Turkish I can speak well English and I am
+                        currently learning Danish.
+                    </p>
+
+
+                </div>
+            </div>
+
+        </section>
+       
+        <section v-if="!isLoading" id="contact1" class="contact1">
+            <div>
+                <h4 class="numberheadinglast"> Contact </h4>
+                <p class="lasttext"> Currently I am looking for a job, if you would like to contact please hit the button!
+
+                </p>
+                <a class="contact" style="animation-delay:100ms;" a
+                    href="mailto:furkannozbek@yandex.com?subject = Feedback&body = Message"> Contact Me</a>
+            </div>
+        </section>
+
+        <section>
+            <h1 id="description"> Please share your opinion about the portfolio </h1>
+            <form id="survey-form">
+              <fieldset class="container">
+                <label id="name-label" for="name"> Your Name <input id="name" type="text" required placeholder="Please enter your full name"></label>
+                <label id="email-label"for="email"> E-mail <input id="email" type="email" required placeholder="Please enter your e-mail adress"></label>
+                
+                
+                <p>Do you find the website clear and easy to understand ?  </p>
+                  <label id="input-radio" for="checkbox"> <input name="checkbox" type="radio" value="definetly"> </input> Definetly </label>
+                     <label id="input-radio" for="checkbox"> <input name="checkbox" type="radio" name:"input-radio" value="maybe"> </input> Maybe </label>
+                      <label id="input-radio" for="checkbox"> <input name="checkbox" type="radio" name:"input-radio" value="no-way" > </input> Nope! </label> 
+                      
+           <p> What you would like to see improved? (check all that apply)  </p>
+               <label id="checkboxes" for="checkboxes"> 
+                 <input name="checkboxes" type="checkbox" value="price"></input> Fonts </label>
+                  <label id="checkboxes" for="checkboxes"> 
+                 <input name="checkboxes" type="checkbox" value="staff"></input> Colours</label>
+                 <label id="checkboxes" for="checkboxes"> 
+                 <input name="checkboxes" type="checkbox" value="hygiene"></input> Animations </label>
+                
+                
+          
+               </label>
+                
+               <label id="suggestions"> 
+                 
+                
+               
+                
+          </textarea>
+          
+           <input id="submit" type="submit" value="Submit" class="submitbtn" />
+          
+              </fieldset>
+
+        </section>
+        <div v-if="!isLoading" class="footer">
+            <div class="links">
+                <ul>
+                    <li><a href="https://github.com/FurkannOzbek" aria-label="GitHub" rel="noopener noreferrer"
+                            target="_blank"><svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="feather feather-github">
+                                <title>GitHub</title>
+                                <path
+                                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                                </path>
+                            </svg></a></li>
+                    <li><a href="https://www.instagram.com/fu.ozbek/" aria-label="Instagram" rel="noopener noreferrer"
+                            target="_blank"><svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="feather feather-instagram">
+                                <title>Instagram</title>
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                            </svg></a></li>
+                    <li><a href="https://www.linkedin.com/in/furkan-%C3%B6zbek-151926127/" aria-label="Linkedin"
+                            rel="noopener noreferrer" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" role="img"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" class="feather feather-linkedin">
+                                <title>LinkedIn</title>
+                                <path
+                                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
+                                </path>
+                                <rect x="2" y="9" width="4" height="12"></rect>
+                                <circle cx="4" cy="4" r="2"></circle>
+                            </svg></a></li>
+                </ul>
+            </div>
+            Built by Furkan Özbek 2024
+        </div>
+    </main>
+    </body>
+    <script> 
+        var isActive=false;
+        
+    function drptoggle () {
+        isActive=!isActive;
+         var t= document.getElementById("dropdowns");
+         var v= document.getElementsByClassName("header-items"); 
+         var k= document.getElementById("header-item");
+
+      
+         console.log(isActive);
+        t.classList.toggle("change");
+        k.classList.toggle("none")
+
+       
+        
+        
+    }
+function handleScroll() {
+      var e = document.getElementById("About")
+      var f = document.getElementById("jobs")
+      var g = document.getElementById("pskills")
+      var d = document.getElementById("header1")
+      var scrollY = window.scrollY
+      if (scrollY > 300) {
+        e.className= ("Aboutvis")
+      }
+      if (scrollY > 800){
+        f.className= ("jobsvis")
+      }
+      if (scrollY > 1600){
+        g.className= ("skillsvis")
+      } 
+      if (scrollY > this.startY){
+        d.className =("header1down")
+      }
+       if (scrollY < this.startY){
+        d.className= ("header1up")
+      }
+      if (scrollY === 0){
+        d.className= ("header1")
+      }
+     
+      this.startY = scrollY;
+    
+    } 
+
+      
+      window.addEventListener('scroll', this.handleScroll)
+
+    function asd(tabnumber){
+        var i;
+        var x = document.getElementsByClassName("tab");
+        for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";
+        var tab1 = document.getElementById("tab1")
+        var tab2 = document.getElementById("tab2")
+        var tab3 = document.getElementById("tab3")
+        tab1.className = "jobtabothers";
+        tab2.className = "jobtabothers";
+        tab3.className = "jobtabothers";
+        var a = event.currentTarget
+        
+        if (a.className = "jobtabothers"){
+            a.className = "jobtabselected"
+          document.getElementById("followline").className=("followline"+a.id)
+           
+
+            
+      }
+      document.getElementById(tabnumber).style.display = "block" ;
+      document.getElementById(tabnumber).style.transition = "all 0.25s cubic-bezier(0.645,0.045,0.355,1);"
+      
+  }} </script>
+
+    
